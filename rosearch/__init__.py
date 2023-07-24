@@ -54,6 +54,7 @@ class RoSearcher:
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.loop.run_until_complete(self._stop())
+        self.loop.close()
 
     async def _stop(self):
         await self.session.close()
